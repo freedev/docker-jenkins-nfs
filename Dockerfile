@@ -4,8 +4,6 @@ USER root
 
 RUN apt-get update && apt-get install -y sudo nfs-client && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /var/efs/jenkins_home
-
 RUN usermod -aG sudo jenkins
 
 RUN echo "" >> /etc/sudoers
