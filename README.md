@@ -2,7 +2,7 @@
 
 This Docker container runs Jenkins and mounts a shared volume (NFS or EFS - AWS Elastic File System) as JENKINS_HOME directory.
 
-When the docker image runs you must specify the following environment variables:
+The following environment variables must be set:
 
     MOUNT_VOLUME=fs-xxxxxxx.efs.eu-west-1.amazonaws.com:/
 
