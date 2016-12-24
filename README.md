@@ -1,6 +1,6 @@
 # jenkins-nfs
 
-This Docker container runs Jenkins and mount a NFS or EFS (AWS Elastic File System) volume as JENKINS_HOME directory.
+This Docker container runs Jenkins and mounts a shared volume (NFS or EFS - AWS Elastic File System) as JENKINS_HOME directory.
 
 When the docker image runs you must specify the following environment variables:
 
