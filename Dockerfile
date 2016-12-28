@@ -14,4 +14,7 @@ USER jenkins
 
 COPY nfs-mount.groovy /usr/share/jenkins/ref/init.groovy.d/nfs-mount.groovy
 
+COPY plugins.txt /usr/share/jenkins/plugins.txt
+RUN /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/plugins.txt)
+
 

@@ -1,13 +1,16 @@
 import hudson.model.*;
 import jenkins.model.*;
 
+
 def nfs_type = System.getenv('MOUNT_TYPE')
 def nfs_volume = System.getenv('MOUNT_VOLUME')
 def nfs_options = System.getenv('MOUNT_OPTIONS')
 
+println "######"
 println "nfs_type $nfs_type"
 println "nfs_volume $nfs_volume"
 println "nfs_options $nfs_options"
+println "######"
 
 def sout = new StringBuilder(), serr = new StringBuilder(), mount_line = new StringBuilder()
 
@@ -42,3 +45,12 @@ if (command) {
    println "out> $sout err> $serr"
 }
 
+println "######"
+println "RELOAD"
+println "######"
+   def reload_command = "curl --data '' localhost:8080/reload".execute()
+   reload_command.consumeProcessOutput(sout, serr)
+   process.waitForOrKill(1000)
+   println "out> $sout err> $serr"
+println "######"
+println "######"
