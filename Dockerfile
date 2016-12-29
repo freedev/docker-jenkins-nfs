@@ -12,9 +12,9 @@ RUN echo "jenkins ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER jenkins
 
-COPY nfs-mount.groovy /usr/share/jenkins/ref/init.groovy.d/nfs-mount.groovy
-
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/plugins.txt)
 
+COPY mount-nfs.sh /usr/local/bin/mount-nfs.sh
 
+ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/mount-nfs.sh"]
